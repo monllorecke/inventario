@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión ELY</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container text-center mt-5">
+        <h1 class="mb-4">GESTION ELY</h1>
+        <a href="{{ url_for('llegada') }}" class="btn btn-primary btn-lg btn-block">Llegada de Mercancía</a>
+        <a href="{{ url_for('preparacion') }}" class="btn btn-secondary btn-lg btn-block">Preparación de Camión</a>
+        <a href="{{ url_for('salida') }}" class="btn btn-success btn-lg btn-block">Salida de Camión</a>
+        <div class="mt-4">
+            <a href="{{ url_for('download_file', filename='gestion_ely.xlsx') }}" class="btn btn-info">Descargar Gestión ELY</a>
+        </div>
+    </div>
+</body>
+</html>

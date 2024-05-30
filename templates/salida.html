@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salida de Camión</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Salida de Camión</h1>
+        <form method="POST" action="{{ url_for('salida') }}">
+            <div class="form-group">
+                <label for="camion_id">Camión Preparado</label>
+                <select class="form-control" id="camion_id" name="camion_id" required>
+                    {% for camion in camiones_preparados %}
+                    <option value="{{ camion[0] }}">{{ camion[1] }} - {{ camion[2] }} kg</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="matricula">Matrícula</label>
+                <input type="text" class="form-control" id="matricula" name="matricula" required>
+            </div>
+            <div class="form-group">
+                <label for="empresa">Empresa</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" required>
+            </div>
+            <div class="form-group">
+                <label for="fecha_salida">Fecha de Salida</label>
+                <input type="text" class="form-control" id="fecha_salida" name="fecha_salida" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Registrar Salida</button>
+        </form>
+        <div class="mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary btn-block">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>
+

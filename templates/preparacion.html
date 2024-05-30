@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preparación de Camión</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Preparación de Camión</h1>
+        <form method="POST" action="{{ url_for('preparacion') }}" enctype="multipart/form-data">
+            <div class="form-group mt-3">
+                <label for="qr">Escanear QR</label>
+                <input type="file" class="form-control" id="qr" name="qr" accept="image/*" required capture="camera">
+            </div>
+            <button type="submit" class="btn btn-secondary btn-block">Escanear y Agregar</button>
+        </form>
+        <form method="POST" action="{{ url_for('finalizar_camion') }}">
+            <button type="submit" class="btn btn-primary btn-block mt-3">Finalizar Camión</button>
+        </form>
+        <h2 class="text-center mt-5">Camiones Preparados</h2>
+        <table class="table table-striped mt-3">
+            <thead>
+                <tr>
+                    <th>Referencia</th>
+                    <th>Peso Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for camion in camiones_preparados %}
+                <tr>
+                    <td>{{ camion[1] }}</td>
+                    <td>{{ camion[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="mt-4">
+            <a href="{{ url_for('index') }}" class="btn btn-secondary btn-block">Volver al Inicio</a>
+        </div>
+    </div>
+</body>
+</html>

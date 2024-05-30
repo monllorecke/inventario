@@ -1,0 +1,6 @@
+version: "2"
+authtoken: 2gk1V3Oyzip1DpQjbODPfHKNzBW_7o5tYP9ZNicbNn44GFfS4
+tunnels:
+  gestion_ely:
+    proto: http
+    addr: 5007
